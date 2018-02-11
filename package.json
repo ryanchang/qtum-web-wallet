@@ -4,10 +4,36 @@
   "description": "A Vue.js project",
   "author": "qi weiyu <qi@weiyu.me>",
   "private": true,
+  "main": "src/electron-starter.js",
+  "build": {
+    "productName": "Qtum Wallet",
+    "directories": {
+      "buildResources": "dist",
+      "output": "output"
+    },
+    "files": ["dist/", "src/electron-starter.js"],
+    "mac": {
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  },
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "electron-dev": "ELECTRON_START_URL=http://localhost:8080 electron .",
+    "electron": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win --mac"
   },
   "dependencies": {
     "bignumber.js": "^4.1.0",
@@ -35,6 +61,8 @@
     "copy-webpack-plugin": "^4.3.1",
     "css-loader": "^0.28.9",
     "cssnano": "^3.10.0",
+    "electron": "^1.8.2",
+    "electron-builder": "^19.56.0",
     "ethjs-abi": "^0.2.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.16.2",

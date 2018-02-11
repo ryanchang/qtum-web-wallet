@@ -58,3 +58,6 @@ typings/
 .env
 
 .idea
+
+# Output of 'yarn dist'(electron-builder)
+output/
